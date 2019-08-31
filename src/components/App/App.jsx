@@ -1,9 +1,12 @@
 import React from 'react';
+import Movies from './../Movies/Movies';
 import './App.scss';
 
 const App = () => {
     return (
-        <header className='header'>Hello Vidly</header>
+        <main className='container'>
+            <Movies />
+        </main>
     );
 }
  
