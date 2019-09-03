@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { getMovies } from '../../services/fakeMovieService';
 import Like from './../common/Like/index';
 import Pagination from '../common/Pagination';
+import { getMovies } from '../../services/fakeMovieService';
+import { paginate } from '../../utils/paginate';
 import './Movies.scss';
 
 class Movies extends Component {
@@ -36,13 +37,15 @@ class Movies extends Component {
     }
 
     render() {
-        const { movies, pageSize, currentPage } = this.state;
-        if (movies.length === 0) {
+        const {length: count} = this.state.movies;
+        const { movies: allMovies, pageSize, currentPage } = this.state;
+        if (count === 0) {
             return <p>There are no movies in the database</p>
         }
+        const movies = paginate(allMovies, currentPage, pageSize);
         return (
             <React.Fragment>
-                <p>Showing {movies.length} movies in the database.</p>
+                <p>Showing {count} movies in the database.</p>
                 <table className='table'>
                     <thead>
                         <tr>
@@ -82,7 +85,7 @@ class Movies extends Component {
                     </tbody>
                 </table>
                 <Pagination
-                    itemsCount={movies.length}
+                    itemsCount={count}
                     pageSize={pageSize}
                     currentPage={currentPage}
                     onPageChange={this.handlePageChange}
