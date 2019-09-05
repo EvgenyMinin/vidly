@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
+import NavBar from './../NavBar';
 import Movies from './../Movies';
 import Customers from './../Customers';
 import Rentals from './../Rentals';
@@ -8,7 +9,9 @@ import './App.scss';
 
 const App = () => {
     return (
-        <main className='container'>
+        <React.Fragment>
+        <NavBar />
+        <main className='container app'>
             <Switch>
                 <Route path="/movies" component={Movies} />
                 <Route path="/customers" component={Customers} />
@@ -18,6 +21,7 @@ const App = () => {
                 <Redirect to='/not-found' />
             </Switch>
         </main>
+        </React.Fragment>
     );
 }
  
