@@ -6,6 +6,7 @@ import Customers from './../Customers';
 import Rentals from './../Rentals';
 import NotFound from './../NotFound';
 import MovieForm from './../MovieForm';
+import LoginForm from './../LoginForm';
 import './App.scss';
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
         <main className='container app'>
             <Switch>
                 <Route path='/movies/:id' component={MovieForm} />
+                <Route path='/login' component={LoginForm} />
                 <Route path="/movies" component={Movies} />
                 <Route path="/customers" component={Customers} />
                 <Route path="/rentals" component={Rentals} />
