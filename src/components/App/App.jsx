@@ -5,6 +5,7 @@ import Movies from './../Movies';
 import Customers from './../Customers';
 import Rentals from './../Rentals';
 import NotFound from './../NotFound';
+import MovieForm from './../MovieForm';
 import './App.scss';
 
 const App = () => {
@@ -13,6 +14,7 @@ const App = () => {
         <NavBar />
         <main className='container app'>
             <Switch>
+                <Route path='/movies/:id' component={MovieForm} />
                 <Route path="/movies" component={Movies} />
                 <Route path="/customers" component={Customers} />
                 <Route path="/rentals" component={Rentals} />
