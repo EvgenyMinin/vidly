@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Input from './../common/Input';
 import './LoginForm.scss';
 
 class LoginForm extends Component {
@@ -28,27 +29,18 @@ class LoginForm extends Component {
             <div>
                 <h1>Login</h1>
                 <form onSubmit={this.handleSubmit}>
-                    <div className="form-group">
-                        <label htmlFor="username">Username</label>
-                        <input
-                            autoFocus
-                            className="form-control"
-                            id="username"
-                            type="text"
-                            value={username}
-                            onChange={this.handleChange}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="password">Password</label>
-                        <input
-                            id="password"
-                            type="text"
-                            className="form-control"
-                            value={password}
-                            onChange={this.handleChange}
-                        />
-                    </div>
+                    <Input
+                        name='username'
+                        label='Username'
+                        value={username}
+                        onChange={this.handleChange}
+                    />
+                    <Input
+                        name='password'
+                        label='Password'
+                        value={password}
+                        onChange={this.handleChange}
+                    />
                     <button className="btn btn-primary">Login</button>
                 </form>
             </div>
